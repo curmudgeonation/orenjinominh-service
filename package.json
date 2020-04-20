@@ -33,6 +33,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^25.3.0",
+    "lorem-ipsum": "^2.0.3",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.3",
     "webpack": "^4.42.1",
