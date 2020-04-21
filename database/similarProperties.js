@@ -4,16 +4,18 @@ mongoose.Promise = global.Promise;
 
 const similarPropertiesSchema = new mongoose.Schema({
   propertyID: Number,
-  photos: [String],
+  assets: [String],
   location: String,
   typeOfRoom: String,
   totalBeds: Number,
-  nameOfProperty: String,
+  headline: String,
   pricing: Number,
   rating: Number,
   reviews: Number
 });
 
 const similarProperties = mongoose.model('Similar Properties', similarPropertiesSchema);
+
+
 
 module.exports = similarProperties;

@@ -1,26 +1,25 @@
-var webpack = require('webpack');
 var path = require('path');
 
 var SRC_DIR = path.join(__dirname, '/client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
+var htmlTemplate = path.join(__dirname, 'client/src/index.html');
+
 
 module.exports = {
-  entry: `${SRC_DIR}/index.jsx`,
-  target: 'node',
+  mode: 'development',
+  entry: [`${SRC_DIR}/index.jsx`],
   output: {
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: DIST_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.m?js$/,
+        test: /\.js?$/,
         include: SRC_DIR,
         loader: 'babel-loader',
-        query: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
       }
     ]
-  }
+  },
+  plugins: [HTMLWebpackPluginConfig]
 };
