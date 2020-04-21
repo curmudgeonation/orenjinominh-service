@@ -47,7 +47,7 @@ generateRandomRating = function() {
   var precision = 100;
   var randomNum = Math.floor(Math.random() * (5 * precision - 3 * precision) + 3 * precision) / (1 * precision);
   return randomNum;
-}
+};
 
 generateRandomPhotos = function() {
   const shuffled = stockImages.sort(() => 0.5 - Math.random());
@@ -66,10 +66,10 @@ generateRandomPhotos = function() {
 const insertSeedData = function() {
   const seederData = [];
 
-  for (var i = 1; i < 101; i++) {
+  for (var i = 1001; i < 1100; i++) {
 
     var singleProp = {
-      propertyID: i,
+      listingId: i,
       photos: generateRandomPhotos(),
       location: randomLocation[Math.round(Math.random() * 7)],
       typeOfRoom: lorem.generateWords(2),
@@ -84,8 +84,8 @@ const insertSeedData = function() {
   }
 
   similarProperties.create(seederData)
-    .then(() => {console.log('Success creating and seeding db.')})
-    .catch((err) => {console.log(err)});
+    .then(() => { console.log('Success creating and seeding db.') })
+    .catch((err) => { console.log(err) });
 };
 
 insertSeedData();

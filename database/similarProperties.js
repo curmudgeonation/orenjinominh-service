@@ -3,7 +3,7 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const similarPropertiesSchema = new mongoose.Schema({
-  propertyID: Number,
+  listingId: Number,
   photos: [String],
   location: String,
   typeOfRoom: String,
