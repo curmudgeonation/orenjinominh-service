@@ -70,11 +70,11 @@ const insertSeedData = function() {
 
     var singleProp = {
       propertyID: i,
-      photos: generateRandomPhotos(),
+      assets: generateRandomPhotos(),
       location: randomLocation[Math.round(Math.random() * 7)],
       typeOfRoom: lorem.generateWords(2),
       totalBeds: Math.round(Math.random() * 3),
-      nameOfProperty: lorem.generateWords(5),
+      headline: lorem.generateWords(5),
       pricing: generateRandomPrice(),
       rating: generateRandomRating(),
       reviews: Math.round(Math.random() * 1000)
