@@ -19,13 +19,10 @@ app.get('/similarprops', function (req, res) {
       res.send(results);
     });
   } catch (err) {
-    console.log('Error getting properties from db: ', err);
+    console.log('Error getting similar properties from db: ', err);
   }
 });
 
+module.exports = app;
 
-const port = process.env.PORT || 2000;
 
-app.listen(port, function() {
-  console.log(`listening on port ${port}`);
-});
