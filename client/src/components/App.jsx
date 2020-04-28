@@ -11,6 +11,23 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount(){
+    console.log('inside componentdidmount');
+    $.ajax({
+      url: '/similarprops',
+      type: 'GET',
+      success: (data) => {
+        // this.setState({
+        //   similarProperties: [...data]
+        // });
+        console.log('data is here', data);
+      },
+      error: function(err) {
+        console.log("Failed to get the data from the server ", err);
+      }
+    })
+  }
+
   render() {
     return (
       <div>

@@ -19,7 +19,7 @@ app.get('/similarprops', function (req, res) {
       res.send(results);
     });
   } catch (err) {
-    console.log('Error getting properties from db: ', err);
+    console.log('Error getting similar properties from db: ', err);
   }
 });
 
