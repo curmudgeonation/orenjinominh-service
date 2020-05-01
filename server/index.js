@@ -10,8 +10,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
-app.get('/similarprops', function (req, res) {
+
+app.get('/similarprops', (req, res) => {
 
   try {
     fetchFromDB((results) => {
@@ -24,5 +33,6 @@ app.get('/similarprops', function (req, res) {
 });
 
 module.exports = app;
+
 
 
