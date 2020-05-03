@@ -27,6 +27,7 @@
     "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-items-carousel": "^2.8.0",
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.1.0"
   },

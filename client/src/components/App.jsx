@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
-// import Properties from './Properties.jsx';
+import Properties from './Properties.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -14,12 +14,12 @@ class App extends React.Component {
   componentDidMount(){
     console.log('inside componentdidmount');
     $.ajax({
-      url: 'http://127.0.0.1:4000/similarprops',
+      url: '/similarprops',
       type: 'GET',
       success: (data) => {
-        // this.setState({
-        //   similarProperties: [...data]
-        // });
+        this.setState({
+          similarProperties: [...data]
+        });
         console.log('data is here', data);
       },
       error: function(err) {
@@ -34,7 +34,7 @@ class App extends React.Component {
         <div className="main">
           <h3>More Homes You May Like</h3>
           <div className ="properties">
-          {/* <Properties properties={this.state.similarProperties} /> */}
+          <Properties properties={this.state.similarProperties} />
           </div>
         </div>
       </div>

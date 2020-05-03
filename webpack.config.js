@@ -1,9 +1,9 @@
 const path = require('path');
 
-const SRC_DIR = path.join(__dirname, '/client/src');
-const DIST_DIR = path.join(__dirname, '/client/dist');
-const htmlTemplate = path.join(__dirname, 'client/src/index.html');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const SRC_DIR = path.join(__dirname, '/client/src');
+// const DIST_DIR = path.join(__dirname, '/client/dist');
+// const htmlTemplate = path.join(__dirname, 'client/src/index.html');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // let HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 //   title: 'Development',
