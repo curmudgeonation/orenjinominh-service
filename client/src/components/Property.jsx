@@ -4,14 +4,36 @@ import ReactDom from 'react-dom';
 import Assets from './Assets.jsx';
 
 
-// state passed down is one JSON object from db
-const Property = (props) => (
-  <div className = "property">
-    <h3>This component renders a property's photos and its listing details.</h3>
-    <Assets />
-    <div> listing details get passed as props here: location, typeOfRoom, totalBeds, headline, pricing, rating, reviews.
-    </div>
-  </div>
-);
+const Property = (props) => {
+  console.log(props.property[0]);
+
+
+  // console.log(Object.values(props.property[0]));
+
+  return (
+  <div>listing</div>
+  );
+}
+
+
+// class Property extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//   }
+
+//   ComponentDidMount() {
+//     props = props.property[0];
+//   }
+
+//   render() {
+//     return (
+//     <div> {props}
+//       </div>
+//     );
+//   }
+// }
+
+
 
 export default Property;

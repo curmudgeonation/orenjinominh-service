@@ -2,7 +2,6 @@
 // import ReactDom from 'react-dom';
 
 // import Arrows from './Arrows.jsx';
-// import Property from './Property.jsx';
 
 // const Properties = (props) => (
 //   <div className = "similar-properties">
@@ -17,8 +16,9 @@
 
 import React, { useState } from 'react';
 import ItemsCarousel from 'react-items-carousel';
+import Property from './Property.jsx';
 
-export default () => {
+const Properties = (props) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
 
@@ -34,7 +34,7 @@ export default () => {
         outsideChevron
         chevronWidth={chevronWidth}
       >
-        <div style={{ height: 400 }}>1st card</div>
+        <div style={{ height: 400 }}><Property property={[props.properties[0]]}/></div>
         <div style={{ height: 400 }}>2nd card</div>
         <div style={{ height: 400 }}>3rd card</div>
         <div style={{ height: 400 }}>4th card</div>
@@ -50,3 +50,5 @@ export default () => {
     </div>
   );
 };
+
+export default Properties;
