@@ -5,8 +5,10 @@ import Assets from './Assets.jsx';
 
 
 const Property = (props) => {
-  console.log(props.property[0]);
+  console.log(props);
+  console.log([props.property[0]]);
 
+  // let details = Object.values(props.property[0]);
 
   // console.log(Object.values(props.property[0]));
 
@@ -14,25 +16,6 @@ const Property = (props) => {
   <div>listing</div>
   );
 }
-
-
-// class Property extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//   }
-
-//   ComponentDidMount() {
-//     props = props.property[0];
-//   }
-
-//   render() {
-//     return (
-//     <div> {props}
-//       </div>
-//     );
-//   }
-// }
 
 
 
