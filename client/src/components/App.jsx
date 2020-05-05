@@ -17,9 +17,9 @@ class App extends React.Component {
       url: '/similarprops',
       type: 'GET',
       success: (data) => {
-        // this.setState({
-        //   similarProperties: [...data]
-        // });
+        this.setState({
+          similarProperties: [...data]
+        });
         console.log('data is here', data);
       },
       error: function(err) {
