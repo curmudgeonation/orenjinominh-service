@@ -5,15 +5,17 @@ import Assets from './Assets.jsx';
 
 
 const Property = (props) => {
-  console.log(props);
-  console.log([props.property[0]]);
-
-  // let details = Object.values(props.property[0]);
-
-  // console.log(Object.values(props.property[0]));
 
   return (
-  <div>listing</div>
+    <div id='property-details'>
+      <div id="assets-carousel"><Assets assets ={props.property.assets}/></div>
+      <div>{props.property.location}</div>
+      <div>{props.property.stars}</div>
+      <div>{props.property.typeOfRoom}</div>
+      <div>{props.property.totalBeds} bed</div>
+      <div>{props.property.headline}</div>
+      <div>$ {props.property.pricing} / night</div>
+    </div>
   );
 }
 
