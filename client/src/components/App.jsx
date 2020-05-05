@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="main">
+        <div className="sim-props">
           <h3>More Homes You May Like</h3>
           <div className ="properties">
           <Properties properties={this.state.similarProperties} />
