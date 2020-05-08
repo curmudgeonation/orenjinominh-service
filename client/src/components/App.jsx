@@ -14,8 +14,9 @@ class App extends React.Component {
   componentDidMount(){
     console.log('inside componentdidmount');
     $.ajax({
-      url: '/similarprops',
+      url: 'http://127.0.0.1:4000/similarprops',
       type: 'GET',
+      dataType: 'json',
       success: (data) => {
         this.setState({
           similarProperties: [...data]
@@ -32,7 +33,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="sim-props">
-          <h3>More Homes You May Like</h3>
+          <h3 id='main-header'>More Homes You May Like</h3>
           <div className ="properties">
           <Properties properties={this.state.similarProperties} />
           </div>

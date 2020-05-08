@@ -12,9 +12,9 @@ const Property = (props) => {
       <div>{props.property.location}</div>
       <div>{props.property.stars}</div>
       <div>{props.property.typeOfRoom}</div>
-      <div>{props.property.totalBeds} bed</div>
+  <div>{props.property.totalBeds} {props.property.totalBeds === 1 ? 'bed' : 'beds'} </div>
       <div>{props.property.headline}</div>
-      <div>$ {props.property.pricing} / night</div>
+      <div> <b> ${props.property.pricing}</b> / night</div>
     </div>
   );
 }
