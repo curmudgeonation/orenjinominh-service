@@ -12,7 +12,7 @@ const Assets = (props) => {
   const chevronWidth = 40;
 
   return (
-    <div style={{ padding: `0 ${chevronWidth}px` }}>
+    <div>
       <ItemsCarousel
         requestToChangeActive={setActiveItemIndex}
         activeItemIndex={activeItemIndex}
