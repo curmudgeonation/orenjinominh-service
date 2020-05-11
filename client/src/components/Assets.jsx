@@ -1,38 +1,24 @@
-import React, { useState } from 'react';
-import ItemsCarousel from 'react-items-carousel';
 
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import {Image} from './styledComponents.jsx';
 
-// import Arrows from './Arrows.jsx';
-// import Dots from './Dots.jsx';
-// import Favorite from './Favorite.jsx';
-
 const Assets = (props) => {
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const chevronWidth = 40;
 
   return (
-    <div>
-      <ItemsCarousel
-        requestToChangeActive={setActiveItemIndex}
-        activeItemIndex={activeItemIndex}
-        numberOfCards={1}
-        gutter={20}
-        leftChevron={<button>{'<'}</button>}
-        rightChevron={<button>{'>'}</button>}
-        chevronWidth={chevronWidth}
-      >
-
-       {props.assets.map(asset => {
+    <Carousel showIndicators={true} showArrows={true} showThumbs={false} showStatus={false}>
+      {props.assets.map((asset, index) => {
         return (
-          <div style={{ height: 200 }}>
-          <Image src={asset} />
-          </div>)
-        })}
-
-      </ItemsCarousel>
-    </div>
+          <div style={{height: 200}}>
+            <Image key={index} src={asset} />
+          </div>
+        );
+      })}
+    </Carousel>
   );
 };
+
 
 export default Assets;

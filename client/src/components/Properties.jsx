@@ -25,7 +25,7 @@ const Properties = (props) => {
 
        {props.properties.map(property => {
         return (
-          <div style={{ height: 400 }}>
+          <div key ={activeItemIndex + 1} style={{ height: 400 }}>
           <Property property={property}/>
           </div>)
         })}

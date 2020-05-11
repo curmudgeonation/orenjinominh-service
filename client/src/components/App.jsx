@@ -12,7 +12,6 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    console.log('inside componentdidmount');
     $.ajax({
       url: 'http://127.0.0.1:4000/similarprops',
       type: 'GET',

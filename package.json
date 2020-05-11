@@ -29,6 +29,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-items-carousel": "^2.8.0",
+    "react-responsive-carousel": "^3.2.7",
     "react-router-dom": "^5.1.2",
     "style-loader": "^1.2.1",
     "styled-components": "^5.1.0"
