@@ -15,7 +15,7 @@ const Property = (props) => {
           {props.property.typeOfRoom + ' · '}
           {props.property.totalBeds} {props.property.totalBeds === 1 ? 'bed' : 'beds'}
         </SleepArrangement>
-        <Star>{props.property.stars}</Star>
+      <Star> {<img src='https://host-service.s3-us-west-1.amazonaws.com/star.png'/>} {props.property.stars}</Star>
       <br></br>
       <div>{props.property.headline}</div>
       <div> <b> ${props.property.pricing}</b> / night</div>

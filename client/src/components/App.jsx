@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 import Properties from './Properties.jsx';
+import {Module} from './styledComponents.jsx'
 
 class App extends React.Component {
   constructor() {
@@ -30,15 +31,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="sim-props">
-          <h3 id='main-header'>More Homes You May Like</h3>
-          <div className ="properties">
-          <Properties properties={this.state.similarProperties} />
-          </div>
+      <Module className="sim-props">
+        <h3 id='main-header' style={{padding: `0px 0px 0px 40px`}}>More Homes You May Like</h3>
+        <div className ="properties">
+        <Properties properties={this.state.similarProperties} />
         </div>
-      </div>
-    );
+      </Module>
+    )
   }
 }
 

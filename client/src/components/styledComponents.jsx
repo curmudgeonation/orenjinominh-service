@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export const Module = styled.div`
+margin-left: auto !important;
+margin-right: auto !important;
+width: auto !important;
+padding-right: 80px !important;
+padding-left: 80px !important;
+justify-content: left;
+`
+
 export const Image = styled.img`
 height:100%;
 width: 100%;
