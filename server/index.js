@@ -9,10 +9,7 @@ const similarProperties = require('../database/similarProperties.js');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-
 app.use(express.static(__dirname + '/../client/dist'));
-
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -20,6 +17,11 @@ app.use((req, res, next) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
+});
+
+// gets module
+app.get('/:id', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../public/index.html'));
 });
 
 // gets all properties
@@ -60,7 +62,7 @@ app.post('/similarprops', function (req, res, next = () => {}) {
         }, {upsert: true})
         // .insertMany(requestListingsRes.data)
           .then(result => {
-            console.log("insert result:", result);
+            // console.log("insert result:", result);
           })
           .catch(err => {
             console.error('Error posting Listing metadata', err);
@@ -88,7 +90,7 @@ app.post('/similarprops', function (req, res, next = () => {}) {
       listingAssets.forEach(urlArray => {
         similarProperties.updateMany({}, {$set: {'assets': urlArray}}, {upsert: true})
           .then(result => {
-            console.log("insert assets result:", result);
+            // console.log("insert assets result:", result);
           })
           .catch(err => {
             console.error('Error posting Listing metadata', err);
@@ -105,20 +107,20 @@ app.post('/similarprops', function (req, res, next = () => {}) {
 
 // gets 12 similar properties (& assets) from local db based on Listing ID
 
-app.get('listings/:id/similarprops', function (req, res, next = () => {}) {
+app.get('/listings/:id/similarprops', function (req, res, next = () => {}) {
   console.log('inside server get 12');
   // query local db for specific listing's location
   axios.get(`http://localhost:3005/listings/${req.params.id}`)
     .then(listings => {
 
-      similarProperties.find({location: listings.data.location})
+      similarProperties.find({'location': listings.data.location})
       .limit(12)
       .exec((err, listings) => {
         if (err) {
           return console.log(err);
         }
         console.log('listings here: ', listings);
-        res.status(200).send(listings);
+        res.status(200).json(listings);
         next();
       });
     })
@@ -127,10 +129,7 @@ app.get('listings/:id/similarprops', function (req, res, next = () => {}) {
     });
 });
 
-// gets module
-app.get('/:id', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../public/index.html'));
-});
+
 
 module.exports = app;
 

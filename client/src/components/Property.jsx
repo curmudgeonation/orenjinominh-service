@@ -18,7 +18,7 @@ const Property = (props) => {
       <Star> {<img src='https://host-service.s3-us-west-1.amazonaws.com/star-xsm.png'/>} {props.property.stars}</Star>
       <br></br>
       <div>{props.property.headline}</div>
-      <div> <b> ${props.property.pricing}</b> / night</div>
+      <div> <b> ${props.property.price}</b> / night</div>
       </Details>
     </div>
   );

@@ -21,6 +21,7 @@ class App extends React.Component {
       url: 'http://127.0.0.1:4000/listings/' + id + '/similarprops',
       type: 'GET',
       dataType: 'json',
+      contentType: 'application/json',
       success: (data) => {
         this.setState({
           similarProperties: [...data]
