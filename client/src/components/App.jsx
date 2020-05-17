@@ -54,16 +54,14 @@ class App extends React.Component {
 
   componentDidMount(){
     console.log('Current listing is:', this.props.id);
-
     this.postListingsMeta();
-    // this.fetchListingsMeta(this.props.id);
   };
 
 
   render() {
     return (
       <Module className="sim-props">
-        <h3 id='main-header' style={{padding: `0px 0px 0px 40px`}}>More Homes You May Like</h3>
+        <h3 id='main-header' style={{padding: `0px 0px 0px 40px`}}>More places to stay</h3>
         <div className ="properties">
         <Properties properties={this.state.similarProperties} />
         </div>

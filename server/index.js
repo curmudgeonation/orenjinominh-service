@@ -54,15 +54,16 @@ app.post('/similarprops', function (req, res, next = () => {}) {
         let singlePropToInsert = listingData[x];
         similarProperties.updateOne({'listingId': singlePropToInsert.listingId}, {
           'listingId': singlePropToInsert.listingId,
+          'headline' : singlePropToInsert.headline,
           'location' : singlePropToInsert.location,
           'typeOfRoom': singlePropToInsert.typeOfRoom,
           'totalBeds': singlePropToInsert.totalBeds,
           'price': singlePropToInsert.price,
-          'stars': singlePropToInsert.stars
+          'stars': singlePropToInsert.stars,
+          'reviews' : singlePropToInsert.reviews
         }, {upsert: true})
-        // .insertMany(requestListingsRes.data)
           .then(result => {
-            // console.log("insert result:", result);
+            console.log("inserted listing: ", result);
           })
           .catch(err => {
             console.error('Error posting Listing metadata', err);
@@ -90,7 +91,7 @@ app.post('/similarprops', function (req, res, next = () => {}) {
       listingAssets.forEach(urlArray => {
         similarProperties.updateMany({}, {$set: {'assets': urlArray}}, {upsert: true})
           .then(result => {
-            // console.log("insert assets result:", result);
+            console.log("inserted assets:", result);
           })
           .catch(err => {
             console.error('Error posting Listing metadata', err);
@@ -108,18 +109,22 @@ app.post('/similarprops', function (req, res, next = () => {}) {
 // gets 12 similar properties (& assets) from local db based on Listing ID
 
 app.get('/listings/:id/similarprops', function (req, res, next = () => {}) {
-  console.log('inside server get 12');
-  // query local db for specific listing's location
+
+
   axios.get(`http://localhost:3005/listings/${req.params.id}`)
     .then(listings => {
 
-      similarProperties.find({'location': listings.data.location})
+      similarProperties.find(
+        { $and: [
+          {'location': listings.data.location},
+          {'listingId': {$ne: req.params.id} }
+        ]}
+      )
       .limit(12)
       .exec((err, listings) => {
         if (err) {
           return console.log(err);
         }
-        console.log('listings here: ', listings);
         res.status(200).json(listings);
         next();
       });
