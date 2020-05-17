@@ -16,8 +16,8 @@ object-fit: cover;
 `
 
 export const Details = styled.div`
-font-weight: 400 !important;
-font-size: 20px !important;
+font-weight: 200 !important;
+font-size: 18px !important;
 line-height: 20px !important;
 `
 
@@ -27,6 +27,17 @@ export const SleepArrangement = styled.span`
   float: left;
   color: #808080;
 `
+
+export const HeadlinePricing = styled.div`
+  display: block;
+  float: left;
+  clear: left;
+`
+
+export const Reviews = styled.span`
+  color: #808080;
+`
+
 export const Star = styled.span`
   font-size: 16px;
   display: block;
