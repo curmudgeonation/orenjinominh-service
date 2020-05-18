@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 
 import Assets from './Assets.jsx';
 
-import {Image, Details, SleepArrangement, Star, Reviews, HeadlinePricing} from './styledComponents.jsx';
+
+import Favorite from './Favorite.jsx';
+import {Details, SleepArrangement, Star, Reviews, HeadlinePricing, ImageContainer} from './styledComponents.jsx';
 
 const Property = (props) => {
+  const [FavIsShown, setIsShown] = useState(false);
+
   return (
     <div id='property-details'>
-      <div id="assets-carousel"><Assets assets ={props.property.assets}/></div>
+      <ImageContainer onMouseEnter={() =>  setIsShown(true)} onMouseLeave={() =>  setIsShown(false)}>
+        <Assets assets ={props.property.assets}/>
+        {FavIsShown && <Favorite></Favorite>}
+      </ImageContainer>
       <Details>
         <SleepArrangement>
           {props.property.typeOfRoom + ' · '}

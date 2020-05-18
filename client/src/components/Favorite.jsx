@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
+import {FavoriteIcon} from './styledComponents.jsx';
 
 class Favorite extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Favorite extends React.Component {
 
   render() {
     return (
-      <button onClick={this.ToggleSave}>{<img src={this.state.Favorited}/>}</button>
+      <FavoriteIcon onClick={this.ToggleSave}>{<img src={this.state.Favorited}/>}</FavoriteIcon>
     );
   }
 

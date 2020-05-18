@@ -8,11 +8,23 @@ padding-right: 80px !important;
 padding-left: 80px !important;
 justify-content: left;
 `
+export const ImageContainer = styled.div`
+position: relative !important;
+height: 250px;
+z-index: 1;
+`
 
 export const Image = styled.img`
 height:100%;
 width: 100%;
-object-fit: cover;
+display: block;
+`
+
+export const FavoriteIcon = styled.button`
+position: absolute !important;
+top: 0;
+right: 0;
+z-index: 2;
 `
 
 export const Details = styled.div`
@@ -49,4 +61,5 @@ border: 0;
 font-size: 40px;
 color: #a9a9a9;
 `
+
 
