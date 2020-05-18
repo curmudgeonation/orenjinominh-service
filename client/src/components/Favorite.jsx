@@ -16,7 +16,7 @@ class Favorite extends React.Component {
 
   ToggleSave() {
     if (this.state.Favorited === 'https://img.icons8.com/metro/52/000000/like.png') {
-      this.setState({Favorited:'https://img.icons8.com/cotton/52/000000/like--v2.png'});
+      this.setState({Favorited:'https://img.icons8.com/flat_round/52/000000/hearts.png'});
     } else {
       this.setState({Favorited:'https://img.icons8.com/metro/52/000000/like.png'});
     }
