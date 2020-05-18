@@ -19,7 +19,6 @@ const Property = (props) => {
           <div>{props.property.headline}</div>
           <div> <b> ${props.property.price}</b> / night</div>
         </HeadlinePricing>
-
       </Details>
 
     </div>

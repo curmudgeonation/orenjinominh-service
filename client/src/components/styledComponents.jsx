@@ -39,7 +39,7 @@ export const Reviews = styled.span`
 `
 
 export const Star = styled.span`
-  font-size: 16px;
+  font-size: 14px;
   display: block;
   float: right;
 `
