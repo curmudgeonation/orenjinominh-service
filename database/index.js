@@ -6,20 +6,8 @@ const db = mongoose.connect(mongoUri, {
   useUnifiedTopology: true
 });
 
+mongoose.set('useCreateIndex', true);
+
 const similarProperties = require('./similarProperties.js');
 
-let find = (cb) => {
-  similarProperties.find({})
-    .limit(12)
-    .exec((err, res) => {
-      if (err) {
-        console.log('Error retrieving properties from database.');
-        cb(err);
-      } else {
-        cb(res);
-      }
-    });
-};
-
 module.exports.db = db;
-module.exports.find = find;
