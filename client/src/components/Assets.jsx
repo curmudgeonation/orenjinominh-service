@@ -12,22 +12,18 @@ const Assets = (props) => {
 
 
   return (
-    <div>
-      <Favorite onMouseEnter={() =>  setIsShown(true)} onMouseLeave={() =>  setIsShown(false)} ></Favorite>
-      <Carousel showIndicators={true} showArrows={true} showThumbs={false} showStatus={false}>
-        {props.assets.map(asset => {
-          return (
-            <div style={{height: 200}}>
-              <Image src={asset}/>
-            </div>
-          );
-        })}
-      </Carousel>
 
+    <Carousel showIndicators={true} showArrows={true} showThumbs={false} showStatus={false}>
+      {props.assets.map(asset => {
+        return (
+          <div style={{height: 200}} onMouseEnter={() =>  setIsShown(true)} onMouseLeave={() =>  setIsShown(false)}>
+            <Image src={asset}/>
+            {FavIsShown && <Favorite></Favorite>}
+          </div>
+        );
+      })}
+    </Carousel>
 
-
-
-    </div>
 
   );
 
