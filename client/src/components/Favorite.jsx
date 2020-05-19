@@ -7,7 +7,7 @@ class Favorite extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Favorited: 'https://img.icons8.com/metro/52/000000/like.png'
+      Favorited: 'https://minhngo-fec-photos.s3-us-west-1.amazonaws.com/notFav.png'
     }
 
     this.ToggleSave = this.ToggleSave.bind(this);
@@ -15,10 +15,10 @@ class Favorite extends React.Component {
   }
 
   ToggleSave() {
-    if (this.state.Favorited === 'https://img.icons8.com/metro/52/000000/like.png') {
-      this.setState({Favorited:'https://img.icons8.com/flat_round/52/000000/hearts.png'});
+    if (this.state.Favorited === 'https://minhngo-fec-photos.s3-us-west-1.amazonaws.com/notFav.png') {
+      this.setState({Favorited:'https://minhngo-fec-photos.s3-us-west-1.amazonaws.com/Fave.png'});
     } else {
-      this.setState({Favorited:'https://img.icons8.com/metro/52/000000/like.png'});
+      this.setState({Favorited:'https://minhngo-fec-photos.s3-us-west-1.amazonaws.com/Fave.png'});
     }
   }
 
