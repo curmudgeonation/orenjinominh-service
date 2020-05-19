@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+
 import $ from 'jquery';
 import Properties from './Properties.jsx';
+import {Module} from './styledComponents.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -9,36 +11,62 @@ class App extends React.Component {
     this.state = {
       similarProperties: [],
     };
+
+    this.fetchListingsMeta.bind(this);
+    this.postListingsMeta.bind(this);
   }
 
-  componentDidMount(){
-    console.log('inside componentdidmount');
+  fetchListingsMeta(id) {
     $.ajax({
-      url: '/similarprops',
+      url: 'http://127.0.0.1:4000/listings/' + id + '/similarprops',
       type: 'GET',
+      dataType: 'json',
+      contentType: 'application/json',
       success: (data) => {
         this.setState({
           similarProperties: [...data]
         });
-        console.log('data is here', data);
+        console.log('Retrieved 12 similar properties successfully!', data);
       },
       error: function(err) {
         console.log("Failed to get the data from the server ", err);
       }
-    })
-  }
+    });
+  };
+
+  postListingsMeta() {
+    var currentListingId = this.props.id;
+
+    $.ajax({
+      url: 'http://127.0.0.1:4000/similarprops',
+      type: 'POST',
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('Post to local db with metadata successful!', data);
+        this.fetchListingsMeta(currentListingId);
+      },
+      error: function(err) {
+        console.log("Failed to post metadata to local db ", err);
+      }
+    });
+
+  };
+
+  componentDidMount(){
+    console.log('Current listing is:', this.props.id);
+    this.postListingsMeta();
+  };
+
 
   render() {
     return (
-      <div>
-        <div className="sim-props">
-          <h3>More Homes You May Like</h3>
-          <div className ="properties">
-          <Properties properties={this.state.similarProperties} />
-          </div>
+      <Module className="sim-props">
+        <h3 id='main-header' style={{padding: `0px 0px 0px 40px`}}>More places to stay</h3>
+        <div className ="properties">
+        <Properties properties={this.state.similarProperties} />
         </div>
-      </div>
-    );
+      </Module>
+    )
   }
 }
 

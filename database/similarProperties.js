@@ -3,14 +3,14 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const similarPropertiesSchema = new mongoose.Schema({
-  propertyID: Number,
+  listingId: {type: Number, required: true, unique: true},
   assets: [String],
   location: String,
   typeOfRoom: String,
   totalBeds: Number,
   headline: String,
-  pricing: Number,
-  rating: Number,
+  price: Number,
+  stars: Number,
   reviews: Number
 });
 

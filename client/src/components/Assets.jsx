@@ -1,19 +1,33 @@
-import React from 'react';
-import ReactDom from 'react-dom';
 
-import Arrows from './Arrows.jsx';
-import Dots from './Dots.jsx';
-import Favorite from './Favorite.jsx';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import {Image} from './styledComponents.jsx';
 
-const Assets = (props) => (
-  <div className = "similar-properties">
-    <h3>This component loads similar properties on a carousel</h3>
-    <Arrows />
-    <div> Property's photos go here.</div>
-    <Dots />
-    <Favorite />
-    <Arrows />
-  </div>
-);
+
+
+const Assets = (props) => {
+
+  return (
+
+    <Carousel showIndicators={true} showArrows={true} showThumbs={false} showStatus={false}>
+      {props.assets.map(asset => {
+        return (
+          <div>
+            <Image src={asset}/>
+          </div>
+        );
+      })}
+    </Carousel>
+
+
+
+
+  );
+
+
+};
+
 
 export default Assets;
