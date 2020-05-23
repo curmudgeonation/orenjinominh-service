@@ -31,6 +31,7 @@ border-radius: 50%;
 `
 
 export const Details = styled.div`
+margin-top: 20px;
 font-weight: 200 !important;
 font-size: 18px !important;
 line-height: 20px !important;
