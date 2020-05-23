@@ -19,29 +19,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// gets module
-app.get('/:id', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../public/index.html'));
-});
-
-// gets all properties
-app.get('/similarprops', function(req, res, next = () => {}) {
-
-  similarProperties.find({}).exec((err, data) => {
-    if (err) {
-      return console.error(err);
-    }
-    res.status(200).json(data);
-    next();
-  });
-});
-
-
 //send Listing and Assets metadata to local db
 app.post('/similarprops', function (req, res, next = () => {}) {
 
-  const requestListings = axios.get(`http://localhost:3005/listings/metadata/all`);
-  const requestAssets = axios.get(`http://localhost:5000/listings/`);
+  const requestListings = axios.get(`http://204.236.167.174/listings/metadata/all`);
+  const requestAssets = axios.get(`http://18.144.125.169/listings/`);
 
   axios.all([requestListings, requestAssets])
     .then(axios.spread((...responses) => {
@@ -111,7 +93,7 @@ app.post('/similarprops', function (req, res, next = () => {}) {
 app.get('/listings/:id/similarprops', function (req, res, next = () => {}) {
 
 
-  axios.get(`http://localhost:3005/listings/${req.params.id}`)
+  axios.get(`http://204.236.167.174/listings/${req.params.id}`)
     .then(listings => {
 
       similarProperties.find(
@@ -134,6 +116,10 @@ app.get('/listings/:id/similarprops', function (req, res, next = () => {}) {
     });
 });
 
+// gets module
+app.get('/:id', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../public/index.html'));
+});
 
 
 module.exports = app;
