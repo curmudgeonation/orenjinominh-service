@@ -9,14 +9,12 @@ padding-left: 80px !important;
 justify-content: left;
 `
 export const ImageContainer = styled.div`
-position: relative !important;
-height: 150px;
 z-index: 1;
 `
 
 export const Image = styled.img`
-height:100%;
-width: 100%;
+height:75%;
+width: 75%;
 display: block;
 `
 
@@ -31,7 +29,7 @@ border-radius: 50%;
 `
 
 export const Details = styled.div`
-margin-top: 20px;
+
 font-weight: 200 !important;
 font-size: 18px !important;
 line-height: 20px !important;

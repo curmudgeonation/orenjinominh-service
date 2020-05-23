@@ -16,7 +16,6 @@ const Property = (props) => {
         <Assets assets ={props.property.assets}/>
         {FavIsShown && <Favorite></Favorite>}
       </ImageContainer>
-      <br></br>
       <Details>
         <SleepArrangement>
           {props.property.typeOfRoom + ' · '}
