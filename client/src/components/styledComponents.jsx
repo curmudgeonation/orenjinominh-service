@@ -10,7 +10,7 @@ justify-content: left;
 `
 export const ImageContainer = styled.div`
 position: relative !important;
-height: 200px;
+height: 150px;
 z-index: 1;
 `
 
